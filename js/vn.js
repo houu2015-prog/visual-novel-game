@@ -15,11 +15,14 @@ function changeBackground(imgName) {
 
 let affection = 0; // 好感度
 
-// ====== 劇本（加入 A/B 分支 + 結局） ======
+// ====== 劇本（加入 A/B 分支 + 結局 + 背景切換） ======
 const script = [
   { name: "？？？", text: "……你終於嚟到呢座城市喇。" },
   { name: "主角", text: "呢度就係… City Lights？同我想像中有啲唔同。" },
+
+  // 背景切換：夜景 → 房間
   { bg: "bg-home.jpg" },
+
   { name: "？？？", text: "哈哈，真正嘅故事，先啱啱開始啫。" },
 
   // 出現選項
@@ -55,15 +58,16 @@ const choiceA = document.getElementById("choiceA");
 const choiceB = document.getElementById("choiceB");
 
 // ====== 顯示對白 ======
-function // 背景切換
-if (line.bg) {
-  changeBackground(line.bg);
-  index++;
-  showLine();
-  return;
-}
-showLine() {
+function showLine() {
   const line = script[index];
+
+  // 背景切換
+  if (line.bg) {
+    changeBackground(line.bg);
+    index++;
+    showLine();
+    return;
+  }
 
   // 如果係選項
   if (line.choice) {
