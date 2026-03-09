@@ -55,7 +55,14 @@ const choiceA = document.getElementById("choiceA");
 const choiceB = document.getElementById("choiceB");
 
 // ====== 顯示對白 ======
-function showLine() {
+function // 背景切換
+if (line.bg) {
+  changeBackground(line.bg);
+  index++;
+  showLine();
+  return;
+}
+showLine() {
   const line = script[index];
 
   // 如果係選項
