@@ -1,4 +1,25 @@
 function changeBackground(imgName) {
+  function showCharacters(leftImg, rightImg) {
+  const left = document.getElementById("char-left");
+  const right = document.getElementById("char-right");
+
+  // 左角色
+  if (leftImg) {
+    left.src = `../img/${leftImg}`;
+    left.style.opacity = 1;
+  } else {
+    left.style.opacity = 0;
+  }
+
+  // 右角色
+  if (rightImg) {
+    right.src = `../img/${rightImg}`;
+    right.style.opacity = 1;
+  } else {
+    right.style.opacity = 0;
+  }
+}
+
   const bg = document.getElementById("bg");
 
   // 淡出
