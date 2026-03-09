@@ -1,6 +1,6 @@
 let affection = 0; // 好感度
 
-// ====== 劇本（加入 A/B 分支） ======
+// ====== 劇本（加入 A/B 分支 + 結局） ======
 const script = [
   { name: "？？？", text: "……你終於嚟到呢座城市喇。" },
   { name: "主角", text: "呢度就係… City Lights？同我想像中有啲唔同。" },
@@ -15,7 +15,16 @@ const script = [
 
   // ====== B 分支 ======
   { branch: "B", name: "主角", text: "我有啲攰，想返旅館休息下。" },
-  { branch: "B", name: "？？？", text: "咁都好，休息好啲先有精神冒險。" }
+  { branch: "B", name: "？？？", text: "咁都好，休息好啲先有精神冒險。" },
+
+  // ====== 結局前提示 ======
+  { ending: true, text: "（你嘅選擇，悄悄改變咗佢對你嘅感覺…）" },
+
+  // Good End
+  { endType: "good", text: "Good End：佢望住你，眼神變得柔和——你哋嘅故事，正式開始。" },
+
+  // Bad End
+  { endType: "bad", text: "Bad End：佢同你保持住禮貌距離，故事喺沉默中慢慢散去。" }
 ];
 
 let index = 0;
@@ -49,6 +58,26 @@ function showLine() {
     return;
   }
 
+  // ====== 結局判定 ======
+  if (line.ending) {
+    nextBtn.classList.add("hidden");
+
+    setTimeout(() => {
+      let endingLine;
+
+      if (affection >= 1) {
+        endingLine = script.find(s => s.endType === "good");
+      } else {
+        endingLine = script.find(s => s.endType === "bad");
+      }
+
+      nameBox.textContent = "";
+      textBox.textContent = endingLine.text;
+    }, 500);
+
+    return;
+  }
+
   // 顯示正常對白
   nameBox.textContent = line.name || "";
   textBox.textContent = line.text || "";
@@ -68,6 +97,7 @@ nextBtn.addEventListener("click", () => {
 // ====== 選項 A ======
 choiceA.addEventListener("click", () => {
   currentBranch = "A";
+  affection += 1; // A 選項加好感
   choices.classList.add("hidden");
   nextBtn.classList.remove("hidden");
   index++;
@@ -77,6 +107,7 @@ choiceA.addEventListener("click", () => {
 // ====== 選項 B ======
 choiceB.addEventListener("click", () => {
   currentBranch = "B";
+  affection -= 1; // B 選項減好感
   choices.classList.add("hidden");
   nextBtn.classList.remove("hidden");
   index++;
