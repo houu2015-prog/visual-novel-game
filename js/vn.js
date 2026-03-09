@@ -36,19 +36,7 @@ function showCharacters(leftImg, rightImg) {
 }
 
 
-  const bg = document.getElementById("bg");
-
-  // 淡出
-  bg.classList.add("bg-hidden");
-
-  setTimeout(() => {
-    // 換背景
-    bg.style.backgroundImage = `url("../img/${imgName}")`;
-
-    // 淡入
-    bg.classList.remove("bg-hidden");
-  }, 500);
-}
+ 
 
 let affection = 0; // 好感度
 
