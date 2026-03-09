@@ -1,3 +1,4 @@
+let affection = 0; // 好感度
 
 // ====== 劇本（加入 A/B 分支） ======
 const script = [
