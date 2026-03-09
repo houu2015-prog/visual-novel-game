@@ -19,7 +19,7 @@ let affection = 0; // 好感度
 const script = [
   { name: "？？？", text: "……你終於嚟到呢座城市喇。" },
   { name: "主角", text: "呢度就係… City Lights？同我想像中有啲唔同。" },
-  { bg: "bg-home.jpg" }
+  { bg: "bg-home.jpg" },
   { name: "？？？", text: "哈哈，真正嘅故事，先啱啱開始啫。" },
 
   // 出現選項
