@@ -42,33 +42,60 @@ let affection = 0; // 好感度
 
 // ====== 劇本（加入 A/B 分支 + 結局 + 背景切換） ======
 const script = [
-  { name: "？？？", text: "……你終於嚟到呢座城市喇。" },
-  { name: "主角", text: "呢度就係… City Lights？同我想像中有啲唔同。" },
+  // ====== 開場：夜景 ======
+{ bg: "bg-night.jpg" },
+{ name: "？？？", right: "girl-normal.png", text: "……你終於嚟到 City Lights 喇。" },
+{ name: "主角", left: "mc-normal.png", text: "你係…？點解會喺度等我？" },
+{ name: "少女", right: "girl-smile.png", text: "我叫璃音。今晚開始，你嘅命運會同我連結。" },
 
-  // 背景切換：夜景 → 房間
-  { bg: "bg-home.jpg" },
+// ====== 背景切換：夜景 → 房間 ======
+{ bg: "bg-room.jpg" },
+{ name: "璃音", right: "girl-normal.png", text: "呢度係我嘅房間。放心，我唔會對你做啲奇怪嘢。" },
+{ name: "主角", left: "mc-normal.png", text: "……你講得好似我應該要擔心咁。" },
 
-  { name: "？？？", text: "哈哈，真正嘅故事，先啱啱開始啫。" },
+// ====== 選項 1 ======
+{ choice: true, text: "你想點回應璃音？" },
 
-  // 出現選項
-  { choice: true, text: "你想點做？" },
+// ====== A 分支：友善 ======
+{ branch: "A", name: "主角", left: "mc-smile.png", text: "多謝你帶我嚟呢度。我相信你。" },
+{ branch: "A", name: "璃音", right: "girl-blush.png", text: "……你咁講，我會唔會太開心咗啲。" },
 
-  // ====== A 分支 ======
-  { branch: "A", name: "主角", text: "我想四圍行下，熟習下環境先。" },
-  { branch: "A", name: "？？？", text: "好啊，我帶你去市中心。" },
+// ====== B 分支：冷淡 ======
+{ branch: "B", name: "主角", left: "mc-normal.png", text: "我唔係好明白你想點。可以講清楚啲？" },
+{ branch: "B", name: "璃音", right: "girl-sad.png", text: "……原來你係呢種人。" },
 
-  // ====== B 分支 ======
-  { branch: "B", name: "主角", text: "我有啲攰，想返旅館休息下。" },
-  { branch: "B", name: "？？？", text: "咁都好，休息好啲先有精神冒險。" },
+// ====== 劇情合流 ======
+{ name: "璃音", right: "girl-normal.png", text: "其實，我搵你係因為——" },
 
-  // ====== 結局前提示 ======
-  { ending: true, text: "（你嘅選擇，悄悄改變咗佢對你嘅感覺…）" },
+// ====== 背景切換：房間 → 神秘空間 ======
+{ bg: "bg-dimension.jpg" },
+{ name: "璃音", right: "girl-serious.png", text: "呢度係『交界之地』。只有被選中嘅人先入到嚟。" },
+{ name: "主角", left: "mc-surprised.png", text: "我？被選中？為咩事？" },
+{ name: "璃音", right: "girl-serious.png", text: "因為……你係唯一可以拯救我世界嘅人。" },
 
-  // Good End
-  { endType: "good", text: "Good End：佢望住你，眼神變得柔和——你哋嘅故事，正式開始。" },
+// ====== 選項 2 ======
+{ choice: true, text: "你點回應璃音嘅請求？" },
 
-  // Bad End
-  { endType: "bad", text: "Bad End：佢同你保持住禮貌距離，故事喺沉默中慢慢散去。" }
+// ====== A2：接受 ======
+{ branch: "A2", name: "主角", left: "mc-smile.png", text: "如果你需要我，我會幫你。" },
+{ branch: "A2", name: "璃音", right: "girl-blush.png", text: "……多謝你。我真係好開心。" },
+
+// ====== B2：拒絕 ======
+{ branch: "B2", name: "主角", left: "mc-normal.png", text: "我唔係英雄。你搵錯人喇。" },
+{ branch: "B2", name: "璃音", right: "girl-sad.png", text: "……原來你真係咁諗。" },
+
+// ====== 結局前提示 ======
+{ ending: true, text: "（你嘅選擇，決定咗璃音對你嘅信任……）" },
+
+// ====== Good End ======
+{ endType: "good", text: "Good End：璃音握住你嘅手，微笑著迎向未知嘅未來。" },
+
+// ====== Bad End ======
+{ endType: "bad", text: "Bad End：璃音轉身離去，交界之地慢慢崩塌，你再見唔到佢。" },
+
+// ====== Secret End（好感度 ≥ 3） ======
+{ endType: "secret", text: "Secret End：璃音輕輕抱住你——『我一直都相信你。』" }
+
 ];
 
 let index = 0;
