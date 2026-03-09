@@ -86,3 +86,32 @@ body {
 #char-right {
   right: 0;
 }
+/* 選項按鈕 */
+#choices {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+#choices button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#choices button:hover {
+  background: white;
+}
+
+/* 隱藏用 */
+.hidden {
+  display: none;
+}
