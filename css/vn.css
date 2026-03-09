@@ -1,1 +1,88 @@
 
+/* VN CSS loaded */
+
+/* 基本設定 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+#game {
+  position: relative;
+  width: 900px;
+  max-width: 100%;
+  height: 500px;
+  background: #111;
+  overflow: hidden;
+}
+
+/* 背景圖 */
+#bg {
+  position: absolute;
+  inset: 0;
+  background: url("../img/bg-room.jpg") center/cover no-repeat;
+  filter: brightness(0.8);
+}
+
+/* 對話框 */
+#dialogue-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+#name-box {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffb6c1;
+}
+
+#text-box {
+  min-height: 60px;
+  line-height: 1.6;
+}
+
+#next-btn {
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #ff80ab;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+}
+
+#next-btn:hover {
+  background: #ff4081;
+}
+
+/* 角色立繪 */
+.char {
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#char-left {
+  left: 0;
+}
+
+#char-right {
+  right: 0;
+}
