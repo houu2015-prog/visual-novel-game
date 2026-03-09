@@ -1,5 +1,20 @@
 function changeBackground(imgName) {
-  function showCharacters(leftImg, rightImg) {
+  const bg = document.getElementById("bg");
+
+  // 淡出
+  bg.classList.add("bg-hidden");
+
+  setTimeout(() => {
+    // 換背景
+    bg.style.backgroundImage = `url("../img/${imgName}")`;
+
+    // 淡入
+    bg.classList.remove("bg-hidden");
+  }, 500);
+}
+
+// ⭐⭐ 角色淡入淡出（正確位置：獨立函式） ⭐⭐
+function showCharacters(leftImg, rightImg) {
   const left = document.getElementById("char-left");
   const right = document.getElementById("char-right");
 
@@ -19,6 +34,7 @@ function changeBackground(imgName) {
     right.style.opacity = 0;
   }
 }
+
 
   const bg = document.getElementById("bg");
 
