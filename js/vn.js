@@ -69,6 +69,9 @@ function showLine() {
     return;
   }
 
+  // 顯示角色立繪（淡入淡出）
+  showCharacters(line.left, line.right);
+
   // 如果係選項
   if (line.choice) {
     nextBtn.classList.add("hidden");
@@ -109,6 +112,7 @@ function showLine() {
   nameBox.textContent = line.name || "";
   textBox.textContent = line.text || "";
 }
+
 
 // ====== 下一句 ======
 nextBtn.addEventListener("click", () => {
