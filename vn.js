@@ -74,7 +74,8 @@ const script = [
 { name: "璃音", right: "girl-serious.png", text: "因為……你係唯一可以拯救我世界嘅人。" },
 
 // ====== 選項 2 ======
-{ choice: true, text: "你點回應璃音嘅請求？" },
+{ choice: true, id: "secondChoice", text: "你點回應璃音嘅請求？" },
+
 
 // ====== A2：接受 ======
 { branch: "A2", name: "主角", left: "mc-smile.png", text: "如果你需要我，我會幫你。" },
