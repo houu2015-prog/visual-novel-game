@@ -193,12 +193,10 @@ nextBtn.addEventListener("click", () => {
 // ====== 選項 A ======
 // ====== 選項 A（第一次 + 第二次） ======
 choiceA.addEventListener("click", () => {
- 
-  
-  if (index === 7) {        // 第一次選項
+  if (index === 7) {
     currentBranch = "A";
     affection += 1;
-  } else if (index === 17) { // 第二次選項
+  } else if (index === 17) {
     currentBranch = "A2";
     affection += 2;
   }
@@ -209,15 +207,11 @@ choiceA.addEventListener("click", () => {
   showLine();
 });
 
-
-// ====== 選項 B（第一次 + 第二次） ======
 choiceB.addEventListener("click", () => {
-  
- 
-  if (index === 7) {        // 第一次選項
+  if (index === 7) {
     currentBranch = "B";
     affection -= 1;
-  } else if (index === 17) { // 第二次選項
+  } else if (index === 17) {
     currentBranch = "B2";
     affection -= 1;
   }
@@ -227,6 +221,7 @@ choiceB.addEventListener("click", () => {
   index++;
   showLine();
 });
+
 
 
 
