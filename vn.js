@@ -193,10 +193,12 @@ nextBtn.addEventListener("click", () => {
 // ====== 選項 A ======
 // ====== 選項 A（第一次 + 第二次） ======
 choiceA.addEventListener("click", () => {
-  if (index === 7) {
+  const line = script[index];
+
+  if (line.id === "firstChoice") {
     currentBranch = "A";
     affection += 1;
-  } else if (index === 17) {
+  } else if (line.id === "secondChoice") {
     currentBranch = "A2";
     affection += 2;
   }
@@ -207,11 +209,18 @@ choiceA.addEventListener("click", () => {
   showLine();
 });
 
+
 choiceB.addEventListener("click", () => {
-  if (index === 7) {
+  const line = script[index];
+
+  // 第一次選項（冷淡）
+  if (line.id === "firstChoice") {
     currentBranch = "B";
     affection -= 1;
-  } else if (index === 17) {
+  }
+
+  // 第二次選項（拒絕）
+  else if (line.id === "secondChoice") {
     currentBranch = "B2";
     affection -= 1;
   }
@@ -221,6 +230,7 @@ choiceB.addEventListener("click", () => {
   index++;
   showLine();
 });
+
 
 
 
