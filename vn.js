@@ -139,8 +139,18 @@ function showLine() {
     choices.classList.remove("hidden");
     textBox.textContent = line.text;
     nameBox.textContent = "";
+
+    // ⭐ 根據選項 ID 設定按鈕文字
+    if (line.id === "firstChoice") {
+        choiceA.textContent = "友善回應";
+        choiceB.textContent = "冷淡回應";
+    } else if (line.id === "secondChoice") {
+        choiceA.textContent = "接受";
+        choiceB.textContent = "拒絕";
+    }
+
     return;
-  }
+}
 
   // 如果係分支，但唔係玩家揀嗰條 → 跳過
   if (line.branch && line.branch !== currentBranch) {
