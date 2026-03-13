@@ -194,14 +194,13 @@ nextBtn.addEventListener("click", () => {
 // ====== 選項 A（第一次 + 第二次） ======
 choiceA.addEventListener("click", () => {
   // 第一次選項
-  if (script[index].text === "你想點回應璃音？") {
+  choiceA.addEventListener("click", () => {
+  if (index === 7) {        // 第一次選項
     currentBranch = "A";
     affection += 1;
-  }
-  // 第二次選項
-  else if (script[index].text === "你點回應璃音嘅請求？") {
+  } else if (index === 17) { // 第二次選項
     currentBranch = "A2";
-    affection += 2; // 第二次選項加更多好感
+    affection += 2;
   }
 
   choices.classList.add("hidden");
@@ -210,15 +209,15 @@ choiceA.addEventListener("click", () => {
   showLine();
 });
 
+
 // ====== 選項 B（第一次 + 第二次） ======
 choiceB.addEventListener("click", () => {
   // 第一次選項
-  if (script[index].text === "你想點回應璃音？") {
+  choiceB.addEventListener("click", () => {
+  if (index === 7) {        // 第一次選項
     currentBranch = "B";
     affection -= 1;
-  }
-  // 第二次選項
-  else if (script[index].text === "你點回應璃音嘅請求？") {
+  } else if (index === 17) { // 第二次選項
     currentBranch = "B2";
     affection -= 1;
   }
@@ -228,6 +227,7 @@ choiceB.addEventListener("click", () => {
   index++;
   showLine();
 });
+
 
 
 // ====== 初始化 ======
