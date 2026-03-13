@@ -194,7 +194,7 @@ nextBtn.addEventListener("click", () => {
 // ====== 選項 A（第一次 + 第二次） ======
 choiceA.addEventListener("click", () => {
   // 第一次選項
-  choiceA.addEventListener("click", () => {
+  
   if (index === 7) {        // 第一次選項
     currentBranch = "A";
     affection += 1;
@@ -213,7 +213,7 @@ choiceA.addEventListener("click", () => {
 // ====== 選項 B（第一次 + 第二次） ======
 choiceB.addEventListener("click", () => {
   // 第一次選項
-  choiceB.addEventListener("click", () => {
+ 
   if (index === 7) {        // 第一次選項
     currentBranch = "B";
     affection -= 1;
