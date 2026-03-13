@@ -135,12 +135,14 @@ function showLine() {
 
   // 如果係選項
   if (line.choice) {
+    // ⭐ 強制鎖定 index，避免跳錯
+    index = script.indexOf(line);
+
     nextBtn.classList.add("hidden");
     choices.classList.remove("hidden");
     textBox.textContent = line.text;
     nameBox.textContent = "";
 
-    // ⭐ 根據選項 ID 設定按鈕文字
     if (line.id === "firstChoice") {
         choiceA.textContent = "友善回應";
         choiceB.textContent = "冷淡回應";
