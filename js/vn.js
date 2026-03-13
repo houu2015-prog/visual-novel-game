@@ -6,7 +6,7 @@ function changeBackground(imgName) {
 
   setTimeout(() => {
     // 換背景
-    bg.style.backgroundImage = `url("../img/${imgName}")`;
+    bg.style.backgroundImage = `url("img/${imgName}")`;
 
     // 淡入
     bg.classList.remove("bg-hidden");
