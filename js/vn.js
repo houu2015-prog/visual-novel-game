@@ -141,24 +141,37 @@ function showLine() {
   }
 
   // ====== 結局判定 ======
-  if (line.ending) {
-    nextBtn.classList.add("hidden");
+ // ====== 結局判定 ======
+if (line.ending) {
+  nextBtn.classList.add("hidden");
 
-    setTimeout(() => {
-      let endingLine;
+  setTimeout(() => {
+    let endingLine;
 
-      if (affection >= 1) {
-        endingLine = script.find(s => s.endType === "good");
-      } else {
-        endingLine = script.find(s => s.endType === "bad");
-      }
+    // Secret End（好感度 ≥ 3）
+    if (affection >= 3) {
+      endingLine = script.find(s => s.endType === "secret");
+    }
+    // Good End（好感度 ≥ 1）
+    else if (affection >= 1) {
+      endingLine = script.find(s => s.endType === "good");
+    }
+    // Bad End（其他）
+    else {
+      endingLine = script.find(s => s.endType === "bad");
+    }
 
-      nameBox.textContent = "";
-      textBox.textContent = endingLine.text;
-    }, 500);
+    nameBox.textContent = "";
+    textBox.textContent = endingLine.text;
 
-    return;
-  }
+    // 停止遊戲
+    nextBtn.disabled = true;
+    choices.classList.add("hidden");
+  }, 500);
+
+  return;
+}
+
 
   // 顯示正常對白
   nameBox.textContent = line.name || "";
