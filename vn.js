@@ -54,7 +54,7 @@ const script = [
 { name: "主角", left: "mc-normal.png", text: "……你講得好似我應該要擔心咁。" },
 
 // ====== 選項 1 ======
-{ choice: true, text: "你想點回應璃音？" },
+{ choice: true, id: "firstChoice", text: "你想點回應璃音？" },
 
 // ====== A 分支：友善 ======
 { branch: "A", name: "主角", left: "mc-smile.png", text: "多謝你帶我嚟呢度。我相信你。" },
