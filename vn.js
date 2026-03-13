@@ -112,6 +112,14 @@ const choiceB = document.getElementById("choiceB");
 
 // ====== 顯示對白 ======
 function showLine() {
+  
+
+  // ⭐ 防止 index 跳錯（一定要放在最前面）
+  if (index < 0) index = 0;
+  if (index >= script.length) index = script.length - 1;
+
+  
+
   const line = script[index];
 
   // 背景切換
