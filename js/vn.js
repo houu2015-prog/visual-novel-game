@@ -20,7 +20,7 @@ function showCharacters(leftImg, rightImg) {
 
   // 左角色
   if (leftImg) {
-    left.src = `../img/${leftImg}`;
+    left.src = `img/${leftImg}`;
     left.style.opacity = 1;
   } else {
     left.style.opacity = 0;
@@ -28,7 +28,7 @@ function showCharacters(leftImg, rightImg) {
 
   // 右角色
   if (rightImg) {
-    right.src = `../img/${rightImg}`;
+    right.src = `img/${rightImg}`;
     right.style.opacity = 1;
   } else {
     right.style.opacity = 0;
